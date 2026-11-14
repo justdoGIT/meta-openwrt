@@ -14,7 +14,7 @@ LICENSE = "BSD-1-Clause&BSD-3-Clause"
 LICENSE += "${@bb.utils.contains('PACKAGECONFIG', 'examples', '&GPL-2.0-only', '', d)}"
 LICENSE:${PN} = "BSD-1-Clause&BSD-3-Clause"
 LICENSE:${PN}-lua = "BSD-1-Clause&BSD-3-Clause"
-LICENSE:${PN}-examples = "GPL-2.0&BSD-1-Clause&BSD-3-Clause"
+LICENSE:${PN}-examples = "GPL-2.0-only&BSD-1-Clause&BSD-3-Clause"
 
 LIC_FILES_CHKSUM = "\
                    file://avl.c;endline=39;md5=00810155fed3d604816ec5814523d60a \
@@ -34,12 +34,12 @@ DEPENDS += "json-c"
 DEPENDS += "${@bb.utils.contains('PACKAGECONFIG', 'lua', 'lua5.1', '', d)}"
 
 SRC_URI = "\
-          git://git.openwrt.org/project/libubox.git \
+          git://git.openwrt.org/project/libubox.git;protocol=https;branch=master \
           file://0001-version-libraries.patch \
           file://fix-libdir.patch \
           "
 
-SRCREV = "9e52171d70def760a6949676800d0b73f85ee22d"
+SRCREV = "d2223ef9da7172a84d1508733dc58840e1381e3c"
 PV = "2.0.0+git${SRCPV}"
 
 S = "${WORKDIR}/git"

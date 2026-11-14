@@ -3,15 +3,15 @@
 
 SUMMARY = "Small stream SSL library"
 HOMEPAGE = "http://git.openwrt.org/?p=project/ustream-ssl.git;a=summary"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://ustream-ssl.h;beginline=1;endline=17;md5=f633104677420342f142ab4835e04031"
 SECTION = "base"
 DEPENDS = "libubox openssl"
 
-SRC_URI = "git://git.openwrt.org/project/ustream-ssl.git \
+SRC_URI = "git://git.openwrt.org/project/ustream-ssl.git;protocol=https;branch=master \
           "
 
-SRCREV = "50abd211c4a2c66748d4e7dc2afcb202b5f529b1"
+SRCREV = "868fd8812f477c110f9c6c5252c0bd172167b94c"
 
 S = "${WORKDIR}/git"
 

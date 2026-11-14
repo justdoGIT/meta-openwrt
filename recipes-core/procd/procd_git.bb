@@ -7,18 +7,19 @@ DESCRIPTION = "procd is both both VIRTUAL-RUNTIME-init_manager and \
               VIRTUAL_RUNTIME-dev_manager (like systemd/systemd-udev) \
               "
 HOMEPAGE = "http://wiki.openwrt.org/doc/techref/procd"
-LICENSE = "BSD"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://procd.c;beginline=1;endline=13;md5=61e3657604f131a859b57a40f27a9d8e"
 SECTION = "base"
 DEPENDS = "libubox ubus json-c"
 
-SRC_URI = "git://git.openwrt.org/project/procd.git \
-	file://00_preinit.conf \
-        file://banner.failsafe \
-	file://10_sysinfo \
-"
+SRC_URI = "git://git.openwrt.org/project/procd.git;protocol=https;branch=master \
+           file://0200-fix-build.patch \
+           file://00_preinit.conf \
+           file://banner.failsafe \
+           file://10_sysinfo \
+           "
 
-SRCREV:pn-procd = "6acc48c7a2faac48c534b8a5516500c270550a9e"
+SRCREV:pn-procd = "7a0096853594874d4c60266ec338ac23728017df"
 
 S = "${WORKDIR}/git"
 PD = "${S}/openwrt/package/system/procd/files"
@@ -103,4 +104,3 @@ python () {
     if not bb.utils.contains('DISTRO_FEATURES', 'procd', True, False, d):
         raise bb.parse.SkipPackage("'procd' not in DISTRO_FEATURES")
 }
-

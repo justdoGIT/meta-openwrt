@@ -3,17 +3,17 @@
 
 DESCRIPTION = "Tiny HTTP server"
 HOMEPAGE = "http://git.openwrt.org/?p=project/uhttpd.git;a=summary"
-LICENSE = "BSD"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://main.c;beginline=1;endline=18;md5=ba30601dd30339f7ff3d0ad681d45679"
 SECTION = "base"
-DEPENDS = "libubox ubus json-c ustream-ssl virtual/crypt"
+DEPENDS = "libubox ubus ucode json-c ustream-ssl virtual/crypt"
 
 SRC_URI = "\
-          git://git.openwrt.org/project/uhttpd.git \
+          git://git.openwrt.org/project/uhttpd.git;protocol=https;branch=master \
           file://0100-fix-wrong-binaries-found-due-to-inconsistent-path.patch \
 	  "
 
-SRCREV = "f53a63999784bcb7dc513e221f3f25dd3de2f35e"
+SRCREV = "e3395cd90bed9b7b9fc319e79528fedcc0d947fe"
 S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig openwrt-services openwrt openwrt-base-files
